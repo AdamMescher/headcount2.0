@@ -1,7 +1,7 @@
 export default class DistrictRepository {
   constructor( data ){
     this.data = data.reduce( (acc, elem, i, arr) => {
-      if(!acc[elem.Location]){
+      if(!acc[elem.Location.toUpperCase()]){
         acc[elem.Location.toUpperCase()] = {
           location: elem.Location.toUpperCase(),
           data: {},
@@ -31,12 +31,9 @@ export default class DistrictRepository {
   findAllMatches(search){
     if(search !== undefined){
       const searchUpperCase = search.toUpperCase()
-
       const keys = Object.keys(this.data)
 
-      return  keys.filter( (key) => {
-        return this.data[key].location.includes(searchUpperCase)
-      } )
+      return  keys.filter( key => this.data[key].location.includes(searchUpperCase) )
     }
     else {
       return Object.keys(this.data).map( (elem) => {
@@ -44,5 +41,4 @@ export default class DistrictRepository {
       })
     }
   }
-
 }

@@ -19,13 +19,30 @@ export default class DistrictRepository {
       return acc
     }, {} )
   }
-  
+
   findByName(search){
     if(search !== undefined){
       return this.data[search.toUpperCase()];
     }
 
     return this.data[search]
+  }
+
+  findAllMatches(search){
+    if(search !== undefined){
+      const searchUpperCase = search.toUpperCase()
+
+      const keys = Object.keys(this.data)
+
+      return  keys.filter( (key) => {
+        return this.data[key].location.includes(searchUpperCase)
+      } )
+    }
+    else {
+      return Object.keys(this.data).map( (elem) => {
+        return this.data[elem]
+      })
+    }
   }
 
 }

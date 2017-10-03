@@ -2,21 +2,30 @@ export default class DistrictRepository {
   constructor( data ){
     this.data = data.reduce( (acc, elem, i, arr) => {
       if(!acc[elem.Location]){
-        acc[elem.Location] = {
-          location: elem.Location,
+        acc[elem.Location.toUpperCase()] = {
+          location: elem.Location.toUpperCase(),
           data: {},
         }
       }
 
-      if(!acc[elem.Location].data[elem.TimeFrame]){
-        acc[elem.Location].data[elem.TimeFrame] =  elem.Data
+      if(!acc[elem.Location.toUpperCase()].data[elem.TimeFrame]){
+        if(!isNaN(elem.Data)){
+        acc[elem.Location.toUpperCase()].data[elem.TimeFrame] =  Math.round(elem.Data * 1000) / 1000
+      } else {
+        acc[elem.Location.toUpperCase()].data[elem.TimeFrame] = 0
+        }
       }
 
       return acc
     }, {} )
   }
+  
   findByName(search){
+    if(search !== undefined){
+      return this.data[search.toUpperCase()];
+    }
 
+    return this.data[search]
   }
 
 }

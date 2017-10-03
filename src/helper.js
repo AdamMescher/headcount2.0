@@ -5,10 +5,8 @@ export default class DistrictRepository {
         acc[elem.Location] = {}
       }
 
-      acc[elem.Location][elem.TimeFrame] = {
-        TimeFrame: elem.TimeFrame,
-        DataFormat: elem.DataFormat,
-        Data: elem.Data
+      if(!acc[elem.TimeFrame]){
+        acc[elem.Location][elem.TimeFrame] = elem;
       }
 
       return acc

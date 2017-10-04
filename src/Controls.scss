@@ -1,0 +1,27 @@
+h1 {
+  color: white;
+}
+
+.controls {
+  padding: 0 5% 0 5%;
+  background-color: red;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.search-input {
+  margin-right: 10px;
+  width: 250px;
+}
+
+.search-submit-button{
+  background-color: white;
+  color: black;
+  border: none;
+}
+
+.search-submit-button:hover {
+  background-color: black;
+  color: white;
+}

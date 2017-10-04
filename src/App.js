@@ -15,7 +15,6 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <h1>HeadCount</h1>
         <Controls />
         <CardContainer data={this.state.data} />
       </div>

@@ -1,12 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Kameron|Open+Sans+Condensed:700');
+
 .card {
   border: 2px blue solid;
-  width: 200px; }
+  width: 90%;
+  height: 300px; }
 
 h2 {
+  font-family: 'Open Sans Condensed';
+  font-size: 18px;
   text-align: center; }
 
 ul {
-  list-style: none; }
+  font-family: 'Kameron',serif;
+  list-style: none;
+}
 
 .good {
   color: green; }

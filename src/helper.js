@@ -1,6 +1,10 @@
 export default class DistrictRepository {
   constructor( data ){
-    this.data = data.reduce( (acc, elem, i, arr) => {
+    this.data = this.cleanData(data)
+  }
+
+  cleanData(data) {
+    const cleanedData = data.reduce( (acc, elem, i, arr) => {
       if(!acc[elem.Location.toUpperCase()]){
         acc[elem.Location.toUpperCase()] = {
           location: elem.Location.toUpperCase(),
@@ -18,6 +22,7 @@ export default class DistrictRepository {
 
       return acc
     }, {} )
+    return cleanedData;
   }
 
   findByName(search){

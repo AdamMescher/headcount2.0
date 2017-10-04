@@ -9,7 +9,8 @@ class App extends Component {
   constructor(){
     super()
     this.state = {
-      data: new DistrictRepository(KinderData)
+      data: new DistrictRepository(KinderData),
+      searchInput: ''
     }
   }
   render() {

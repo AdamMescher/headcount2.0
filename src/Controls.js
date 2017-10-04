@@ -10,9 +10,12 @@ export default class Controls extends Component {
   }
 
   updateState(event) {
+    console.log('event target ', event.target);
     this.setState({
       input: event.target.value
     })
+
+    this.props.updateSearchInput(this.state.input)
   }
 
   render(){
@@ -20,7 +23,7 @@ export default class Controls extends Component {
       <div className="controls">
         <h1>HeadCount</h1>
         <section>
-          <input type="text" className="search-input" onChange={this.updateState.bind(this)} value={this.state.input} />
+          <input type="text" className="search-input" onChange={ () => this.updateState(event) } value={this.state.input} />
         </section>
       </div>
     )

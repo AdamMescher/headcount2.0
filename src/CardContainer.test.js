@@ -1,0 +1,20 @@
+import React from 'react';
+import ReactDOM from 'react-dom';
+import Adapter from 'enzyme-adapter-react-15';
+import { shallow, mount, configure } from 'enzyme';
+import DistrictRepository from './helper'
+import KinderData from '../data/kindergartners_in_full_day_program.js';
+import App from './App';
+import CardContainer from './CardContainer';
+
+configure({ adapter: new Adapter() });
+
+describe('CardContainer component', () => {
+
+  const kinderData = new DistrictRepository(KinderData);
+  const renderedCardContainer = shallow(<CardContainer data={kinderData}/>);
+
+  it('should return 181 Cards by default', () => {
+    expect(renderedCardContainer.find('Card').length).toBe(181);
+  });
+})

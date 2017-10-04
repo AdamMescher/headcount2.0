@@ -2,15 +2,15 @@ import React from 'react';
 import './Card.css';
 
 const Card = (props) => {
-  const mapped = Object.keys(props.yearData).map( year => {
+  const mapped = Object.keys(props.yearData).map( (year, index) => {
     if(props.yearData[year] < 0.5){
       return (
-        <li className="bad">{year}: {props.yearData[year]}</li>
+        <li className="bad" key={index + Date.now()}>{year}: {props.yearData[year]}</li>
       )
     }
 
     return (
-      <li className="good">{year}: {props.yearData[year]}</li>
+      <li className="good" key={index + Date.now()}>{year}: {props.yearData[year]}</li>
     )
   })
 

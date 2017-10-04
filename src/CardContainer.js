@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import Card from './Card';
 import './CardContainer.css';
 
@@ -7,5 +8,10 @@ const CardContainer = (props) => {
 
   return <div className="card-container">{mapped}</div>
 }
+
+CardContainer.propTypes = {
+  data: PropTypes.object.isRequired
+}
+
 
 export default CardContainer;

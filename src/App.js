@@ -15,7 +15,6 @@ class App extends Component {
   }
 
   updateSearchInput(newSearchInput) {
-    console.log('search input ', newSearchInput);
     this.setState({
       searchInput: newSearchInput
     })

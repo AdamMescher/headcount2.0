@@ -29,7 +29,7 @@ describe('App component', () => {
   });
 
   it('should have a default state (contain KinderData)', () => {
-    expect(renderedApp.state().data).toEqual(kinderData);
+    expect(renderedApp.state().search).toEqual(kinderData);
   });
 
 })

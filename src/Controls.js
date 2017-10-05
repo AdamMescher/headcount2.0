@@ -14,7 +14,7 @@ export default class Controls extends Component {
       input: event.target.value
     })
 
-    this.props.updateSearchInput(event.target.value)
+    this.props.runSearch(event.target.value)
   }
 
   render(){

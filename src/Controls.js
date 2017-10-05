@@ -10,7 +10,6 @@ export default class Controls extends Component {
   }
 
   updateState(event) {
-    console.log('event target ', event.target);
     this.setState({
       input: event.target.value
     })

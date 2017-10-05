@@ -16,11 +16,7 @@ class App extends Component {
 
   runSearch(searchTerm) {
     searchTerm = searchTerm.toUpperCase();
-    const searchResults = Object.keys(this.data.data).filter( (district, array) => {
-
-      return district.includes(searchTerm)
-    })
-
+    const searchResults = this.data.findAllMatches(searchTerm);
     const searchResultsObj = searchResults.reduce( (acc, result) => {
       if(!acc.data[result]) {
         acc.data[result] = this.data.data[result]

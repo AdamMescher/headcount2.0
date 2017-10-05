@@ -46,4 +46,8 @@ export default class DistrictRepository {
       })
     }
   }
+
+  compareDistrictAverages() {
+    return true
+  }
 }

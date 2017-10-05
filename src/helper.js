@@ -47,6 +47,18 @@ export default class DistrictRepository {
     }
   }
 
+  findAverage(district) {
+    const districtObj = this.findByName(district);
+    const years = Object.keys(districtObj.data);
+    const numYears = years.length;
+
+    const sum = years.reduce( (acc, year) => {
+      return acc+= districtObj.data[year];
+    }, 0)
+
+    return Math.round((sum/numYears) * 1000) / 1000;
+  }
+
   compareDistrictAverages() {
     return true
   }

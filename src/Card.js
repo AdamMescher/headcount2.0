@@ -26,8 +26,9 @@ const Card = (props) => {
 }
 
 Card.propTypes = {
-  location: PropTypes.string.isRequired,
-  yearData: PropTypes.object.isRequired
+  cardType: PropTypes.string.isRequired,
+  location: PropTypes.string,
+  yearData: PropTypes.object
 }
 
 export default Card;

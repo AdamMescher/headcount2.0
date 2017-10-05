@@ -8,33 +8,36 @@ import KinderData from '../data/kindergartners_in_full_day_program.js';
 class App extends Component {
   constructor() {
     super()
+    this.data = new DistrictRepository(KinderData)
     this.state = {
-      data: new DistrictRepository(KinderData),
-      searchInput: ''
+      search: this.data,
     }
   }
 
-  updateSearchInput(newSearchInput) {
+  runSearch(searchTerm) {
+    searchTerm = searchTerm.toUpperCase();
+    const searchResults = Object.keys(this.data.data).filter( (district, array) => {
+
+      return district.includes(searchTerm)
+    })
+
+    const searchResultsObj = searchResults.reduce( (acc, result) => {
+      if(!acc.data[result]) {
+        acc.data[result] = this.data.data[result]
+      }
+      return acc
+    }, {data: {} })
+
     this.setState({
-      searchInput: newSearchInput
+      search: searchResultsObj
     })
   }
-
-  // runSearch(searchTerm) {
-  //   const searchResults = Object.keys(this.state.data).filter( (district) => {
-  //
-  //     return district.location.includes(searchTerm)
-  //   })
-  //   this.setState({
-  //     data: searchResults
-  //   })
-  // }
 
   render() {
     return (
       <div className="App">
-        <Controls  updateSearchInput={this.updateSearchInput.bind(this)}/>
-        <CardContainer data={this.state.data} />
+        <Controls  runSearch={this.runSearch.bind(this)}/>
+        <CardContainer data={this.state.search} />
       </div>
     )
   }

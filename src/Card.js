@@ -11,7 +11,6 @@ class Card extends Component {
   }
 
   toggleClick() {
-    console.log('clicked card')
     this.setState( {
       clicked: !this.state.clicked,
     })
@@ -30,14 +29,26 @@ class Card extends Component {
       )
     })
 
-    return(
-      <div className="card" onClick={this.toggleClick.bind(this)}>
-        <h2>{this.props.location}</h2>
-        <ul>
-          { mapped }
-        </ul>
-      </div>
-    )
+    if(this.state.clicked) {
+      return(
+        <div className='card isClicked' onClick={this.toggleClick.bind(this)}>
+          <h2>{this.props.location}</h2>
+          <ul>
+            { mapped }
+          </ul>
+        </div>
+      )
+    }
+    else {
+      return (
+        <div className='card' onClick={this.toggleClick.bind(this)}>
+          <h2>{this.props.location}</h2>
+          <ul>
+            { mapped }
+          </ul>
+        </div>
+      )
+    }
   }
 }
 

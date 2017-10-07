@@ -30,7 +30,12 @@ class App extends Component {
         clicked.splice(index, 1);
     }
     else {
-      clicked.push(clickedCardInfo);
+      if(clicked.length < 2) {
+        clicked.push(clickedCardInfo);
+      } else {
+        clicked.shift();
+        clicked.push(clickedCardInfo);
+      }
     }
 
     return clicked;

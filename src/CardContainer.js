@@ -9,7 +9,7 @@ const CardContainer = (props) => {
                        .map( (key, index) => (
                          <Card
                            cardType='districtCard'
-                           isClicked={props.clickedCards.find(cc => cc.location === props.data.data[key].location)}
+                           isClicked={(props.clickedCards.find(cc => cc.location === props.data.data[key].location) !== undefined)}
                            location={props.data.data[key].location}
                            yearData={props.data.data[key].data}
                            key={index + Date.now()}
@@ -21,7 +21,6 @@ const CardContainer = (props) => {
       { props.clickedCards.length > 0 &&
         <ComparisonContainer clickedCards={props.clickedCards.reduce((acc, card) => {
           acc[card.location] = card;
-          console.log('acc: ', acc);
           return acc;
         }, {})}/>
       }

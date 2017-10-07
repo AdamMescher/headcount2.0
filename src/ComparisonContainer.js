@@ -6,7 +6,7 @@ import Card from './Card';
 const ComparisonContainer = (props) => {
   const mapped = Object.keys(props.clickedCards).map( (key, index) => {
     return <Card
-      cardType='comparisonCard'
+      cardType='districtCard'
       location={props.clickedCards[key].location}
       yearData={props.clickedCards[key].yearData}
       key={index + Date.now()}

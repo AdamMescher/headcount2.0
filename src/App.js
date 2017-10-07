@@ -23,14 +23,14 @@ class App extends Component {
 
   updateClickedCards(clickedCardInfo, isClicked) {
     const clicked = this.state.clickedCards;
-      if(isClicked) {
-      clicked.push(clickedCardInfo);
+      if(!isClicked) {
+        const index = clicked.findIndex((elem) => {
+          return clickedCardInfo.location === elem.location;
+        })
+        clicked.splice(index, 1);
     }
     else {
-      const index = clicked.findIndex((elem) => {
-        return clickedCardInfo.location === elem.location;
-      })
-      clicked.splice(index, 1);
+      clicked.push(clickedCardInfo);
     }
 
     return clicked;

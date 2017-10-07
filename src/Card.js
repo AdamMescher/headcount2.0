@@ -3,16 +3,19 @@ import PropTypes from 'prop-types';
 import './Card.css';
 
 class Card extends Component {
-  constructor(){
-    super()
+  constructor(props){
+    super(props)
     this.state = {
-      clicked: false,
+      clicked: props.isClicked || false,
     }
   }
 
-  toggleClick() {
+  toggleClick(event) {
     this.setState( {
       clicked: !this.state.clicked,
+    }, () => {
+
+        this.props.handleClicked({location: this.props.location, yearData: this.props.yearData}, this.state.clicked)
     })
   }
 

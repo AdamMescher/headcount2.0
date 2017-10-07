@@ -4,7 +4,15 @@ import Card from './Card';
 // import './ComparisonContainer.css';
 
 const ComparisonContainer = (props) => {
-  return <div></div>
+  const mapped = Object.keys(props.clickedCards).map( (key, index) => {
+    return <Card
+      cardType='comparisonCard'
+      location={props.clickedCards[key].location}
+      yearData={props.clickedCards[key].yearData}
+      key={index + Date.now()}
+           />
+  })
+  return <div>{mapped}</div>
 
 
 }

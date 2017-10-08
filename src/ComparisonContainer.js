@@ -11,7 +11,7 @@ const ComparisonContainer = (props) => {
       cardType='districtCard'
       location={props.clickedCards[key].location}
       yearData={props.clickedCards[key].yearData}
-      key={index + Date.now()}
+      key={index+1 + Date.now()}
            />
   })
     const comparison = <Card
@@ -21,11 +21,11 @@ const ComparisonContainer = (props) => {
            />
 
   return (
-    <div>
+    <div className="comparison-card-container">
       {mapped[0]}
       {
         mapped.length === 2 &&
-        <div>{comparison}</div>
+        comparison
       }
       {mapped[1]}
     </div>

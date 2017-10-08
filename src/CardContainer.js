@@ -19,7 +19,8 @@ const CardContainer = (props) => {
   return (
     <div>
       { props.clickedCards.length > 0 &&
-        <ComparisonContainer comparisonData={props.comparisonData}
+        <ComparisonContainer
+          comparisonData={props.comparisonData}
           clickedCards={props.clickedCards.reduce((acc, card) => {
             acc[card.location] = card;
             return acc;

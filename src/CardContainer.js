@@ -19,10 +19,11 @@ const CardContainer = (props) => {
   return (
     <div>
       { props.clickedCards.length > 0 &&
-        <ComparisonContainer clickedCards={props.clickedCards.reduce((acc, card) => {
-          acc[card.location] = card;
-          return acc;
-        }, {})}/>
+        <ComparisonContainer comparisonData={props.comparisonData}
+          clickedCards={props.clickedCards.reduce((acc, card) => {
+            acc[card.location] = card;
+            return acc;
+          }, {})}/>
       }
       <div className="card-container">{mapped}</div>
     </div>

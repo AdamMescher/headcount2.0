@@ -4,7 +4,9 @@ import Card from './Card';
 // import './ComparisonContainer.css';
 
 const ComparisonContainer = (props) => {
-  const mapped = Object.keys(props.clickedCards).map( (key, index) => {
+  const keys = Object.keys(props.clickedCards);
+
+  const mapped = keys.map( (key, index) => {
     return <Card
       cardType='districtCard'
       location={props.clickedCards[key].location}
@@ -12,9 +14,22 @@ const ComparisonContainer = (props) => {
       key={index + Date.now()}
            />
   })
-  return <div>{mapped}</div>
+    const comparison = <Card
+      cardType='comparisonCard'
+      comparisonData={props.comparisonData}
+      key={Date.now()}
+           />
 
-
+  return (
+    <div>
+      {mapped[0]}
+      {
+        mapped.length === 2 &&
+        <div>{comparison}</div>
+      }
+      {mapped[1]}
+    </div>
+  )
 }
 
 // ComparisonContainer.propTypes = {

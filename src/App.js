@@ -56,11 +56,22 @@ class App extends Component {
     })
   }
 
+  getComparisonData(clickedCards) {
+    if(clickedCards.length > 1) {
+      const comparison = this.data.compareDistrictAverages(clickedCards[0].location, clickedCards[1].location);
+      return {
+        comparison: comparison,
+      }
+    } else {
+      return {}
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Controls  runSearch={this.runSearch.bind(this)}/>
-        <CardContainer data={this.state.search} clickedCards={this.state.clickedCards} handleClicked={this.handleClicked.bind(this)}/>
+        <CardContainer data={this.state.search} clickedCards={this.state.clickedCards} handleClicked={this.handleClicked.bind(this)} comparisonData={this.getComparisonData(this.state.clickedCards)}/>
       </div>
     )
   }

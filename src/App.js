@@ -11,7 +11,34 @@ class App extends Component {
     this.data = new DistrictRepository(KinderData)
     this.state = {
       search: this.data,
+      clickedCards: [],
     }
+  }
+
+  handleClicked(clickedCardInfo, isClicked) {
+    this.setState({
+      clickedCards: this.updateClickedCards(clickedCardInfo, isClicked),
+    })
+  }
+
+  updateClickedCards(clickedCardInfo, isClicked) {
+    const clicked = this.state.clickedCards;
+      if(!isClicked) {
+        const index = clicked.findIndex((elem) => {
+          return clickedCardInfo.location === elem.location;
+        })
+        clicked.splice(index, 1);
+    }
+    else {
+      if(clicked.length < 2) {
+        clicked.push(clickedCardInfo);
+      } else {
+        clicked.shift();
+        clicked.push(clickedCardInfo);
+      }
+    }
+
+    return clicked;
   }
 
   runSearch(searchTerm) {
@@ -29,11 +56,22 @@ class App extends Component {
     })
   }
 
+  getComparisonData(clickedCards) {
+    if(clickedCards.length > 1) {
+      const comparison = this.data.compareDistrictAverages(clickedCards[0].location, clickedCards[1].location);
+      return {
+        comparison: comparison,
+      }
+    } else {
+      return {}
+    }
+  }
+
   render() {
     return (
       <div className="App">
         <Controls  runSearch={this.runSearch.bind(this)}/>
-        <CardContainer data={this.state.search} />
+        <CardContainer data={this.state.search} clickedCards={this.state.clickedCards} handleClicked={this.handleClicked.bind(this)} comparisonData={this.getComparisonData(this.state.clickedCards)}/>
       </div>
     )
   }

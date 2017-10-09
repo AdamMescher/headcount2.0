@@ -20,7 +20,7 @@ export default class Controls extends Component {
   render(){
     return (
       <div className="controls">
-        <h1>HeadCount</h1>
+        <h1 className="logo-text">HeadCount</h1>
         <section>
           <input
             type="text"

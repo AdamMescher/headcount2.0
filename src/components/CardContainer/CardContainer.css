@@ -1,4 +1,6 @@
 .card-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  grid-gap: 10px 10px; }
+  margin: 10px 5% 0 5%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}

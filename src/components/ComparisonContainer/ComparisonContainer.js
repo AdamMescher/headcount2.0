@@ -27,12 +27,12 @@ const ComparisonContainer = (props) => {
 
   return (
     <div className="comparison-card-container">
-      {mapped[0]}
-      {
-        mapped.length === 2 &&
-        comparison
-      }
-      {mapped[1]}
+        {mapped[0]}
+        {
+          mapped.length === 2 &&
+          comparison
+        }
+        {mapped[1]}
     </div>
   );
 };

@@ -1,6 +1,7 @@
-@import url("https://fonts.googleapis.com/css?family=Bitter");
 @import url("./components/App/App.css");
 @import url("./components/Card/Card.css");
 @import url("./components/CardContainer/CardContainer.css");
 @import url("./components/Controls/Controls.css");
 @import url("./components/ComparisonContainer/ComparisonContainer.css");
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');

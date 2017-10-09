@@ -44,14 +44,14 @@ class Card extends Component {
       if (this.state.clicked) {
         return (
           <div className='card isClicked' onClick={this.toggleClick.bind(this)}>
-            <h2>{this.props.location}</h2>
+            <h2 className="card-title">{this.props.location}</h2>
             <ul> { mapped } </ul>
           </div>
         );
       } else {
         return (
           <div className='card' onClick={this.toggleClick.bind(this)}>
-            <h2>{this.props.location}</h2>
+            <h2 className="card-title">{this.props.location}</h2>
             <ul> { mapped } </ul>
           </div>
         );
@@ -60,10 +60,10 @@ class Card extends Component {
       const keys = Object.keys(this.props.comparisonData.comparison);
       return (
         <div className='comparison-card card'>
-          <h2>{keys[0]}</h2>
+          <h2 className="card-title">{keys[0]}</h2>
           <p>{this.props.comparisonData.comparison[keys[0]]}</p>
           <p>{this.props.comparisonData.comparison.compared}</p>
-          <h2>{keys[1]}</h2>
+          <h2 className="card-title">{keys[1]}</h2>
           <p>{this.props.comparisonData.comparison[keys[1]]}</p>
         </div>
       );

@@ -1,1 +1,8 @@
 /*APP COMPONENT RELATED CSS GOES HERE*/
+html, body {
+  margin: 0;
+}
+
+html {
+  font-family: 'Open Sans';
+}

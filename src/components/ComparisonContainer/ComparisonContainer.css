@@ -1,6 +1,7 @@
 .comparison-card-container {
   display: flex;
   justify-content: center;
+  align-items: center;
   margin: 30px 0 30px 0;
 }
 
@@ -10,4 +11,10 @@
 
 .comparison-card {
   text-align: center;
+}
+
+@media (max-width: 775px) {
+  .comparison-card-container {
+    flex-direction: column;
+  }
 }

@@ -1,8 +1,12 @@
-h1 {
-  color: white; }
+.logo-text {
+  color: white;
+  font-size: 3em;;
+}
 
 .controls {
+  height: 120px;
   padding: 0 5% 0 5%;
+  margin-bottom: 2.5%;
   background-color: red;
   display: flex;
   justify-content: space-between;
@@ -10,7 +14,12 @@ h1 {
 
 .search-input {
   margin-right: 10px;
-  width: 250px; }
+  width: 300px;
+  border: none;
+  font-size: 2em;
+  caret-color: #002868;
+  padding: 10px;
+}
 
 .search-submit-button {
   background-color: white;
@@ -20,3 +29,23 @@ h1 {
 .search-submit-button:hover {
   background-color: black;
   color: white; }
+
+@media (max-width: 775px) {
+  .controls {
+    height: 160px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .logo-text {
+    text-align: center;
+    font-size: 2em;
+  }
+
+  .search-input {
+    font-size: 1em;
+    width: 170px;
+    margin-left: 10px;
+  }
+}

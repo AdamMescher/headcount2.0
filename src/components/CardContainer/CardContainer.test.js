@@ -12,7 +12,7 @@ configure({ adapter: new Adapter() });
 describe('CardContainer component', () => {
 
   const kinderData = new DistrictRepository(KinderData);
-  const renderedCardContainer = shallow(<CardContainer data={kinderData}/>);
+  const renderedCardContainer = shallow(<CardContainer dataSet={kinderData}/>);
 
   it('should return 181 Cards by default', () => {
     expect(renderedCardContainer.find('Card').length).toBe(181);

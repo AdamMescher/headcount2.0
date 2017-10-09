@@ -20,8 +20,10 @@ const CardContainer = (props) => {
     <div>
       { props.clickedCards.length > 0 &&
         <ComparisonContainer
+          handleClicked={props.handleClicked}
           comparisonData={props.comparisonData}
-          clickedCards={props.clickedCards.reduce((acc, card) => {
+          clickedCards={props.clickedCards}
+          clickedCardData={props.clickedCards.reduce((acc, card) => {
             acc[card.location] = card;
             return acc;
           }, {})}/>

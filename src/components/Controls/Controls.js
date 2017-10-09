@@ -27,6 +27,7 @@ export default class Controls extends Component {
             className="search-input"
             onChange={this.updateState.bind(this)}
             value={this.state.input}
+            placeholder='Search By District'
           />
         </section>
       </div>

@@ -1,0 +1,13 @@
+.comparison-card-container {
+  display: flex;
+  justify-content: center;
+  margin: 30px 0 30px 0;
+}
+
+.comparison-card-container div {
+  margin-left: 10px;
+}
+
+.comparison-card {
+  text-align: center;
+}

@@ -2,19 +2,23 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-15';
 import { shallow, mount, configure } from 'enzyme';
-import DistrictRepository from './helper'
-import KinderData from '../data/kindergartners_in_full_day_program.js';
-import App from './App';
-import Card from './Card';
+import DistrictRepository from '../../helper';
+import KinderData from '../../../data/kindergartners_in_full_day_program.js';
+import App from '../App/App';
+import Card from '../Card/Card';
 
 configure({ adapter: new Adapter() });
 
-
 describe('Card component', () => {
-
-  const kinderData = new DistrictRepository(KinderData);
   Date.now = jest.fn(() => 1482363367071);
-  const renderedCard = shallow(<Card location={kinderData.data.COLORADO.location} yearData={kinderData.data.COLORADO.data} key={1482363367071} />);
+  const kinderData = new DistrictRepository(KinderData);
+  const renderedCard = shallow(
+    <Card
+      location={kinderData.data.COLORADO.location}
+      yearData={kinderData.data.COLORADO.data}
+      key={1482363367071}
+    />
+  );
 
   it('should match the snapshot', () => {
     expect(renderedCard).toMatchSnapshot();
@@ -32,4 +36,4 @@ describe('Card component', () => {
     expect(renderedCard.find('li').length).toBe(11);
   });
 
-})
+});

@@ -2,9 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Adapter from 'enzyme-adapter-react-15';
 import { shallow, mount, configure } from 'enzyme';
-import DistrictRepository from './helper'
-import KinderData from '../data/kindergartners_in_full_day_program.js';
 import App from './App';
+import DistrictRepository from '../../helper';
+import KinderData from '../../../data/kindergartners_in_full_day_program.js';
 
 
 
@@ -17,7 +17,7 @@ describe('App component', () => {
   const kinderData = new DistrictRepository(KinderData);
 
   it('should exist', () => {
-      expect(renderedApp).toBeDefined()
+    expect(renderedApp).toBeDefined();
   });
 
   it('should render Controls', () => {
@@ -32,4 +32,4 @@ describe('App component', () => {
     expect(renderedApp.state().search).toEqual(kinderData);
   });
 
-})
+});

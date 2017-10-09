@@ -32,4 +32,43 @@ describe('App component', () => {
     expect(renderedApp.state().search).toEqual(kinderData);
   });
 
+  it('should have a default state (empty array of clicked cards)', () => {
+    expect(renderedApp.state().clickedCards).toEqual([]);
+  });
+
+  it('should have a default state (empty array of clicked cards)', () => {
+    expect(renderedApp.state().clickedCards.length).toEqual(0);
+  });
+
+  it('should add data to clickedCards', () => {
+    renderedApp.find('.card').first().simulate('click');
+    expect(renderedApp.state().clickedCards.length).toEqual(1);
+  });
+
+  it('should add data to clickedCards', () => {
+    renderedApp.find('.card').at(2).simulate('click');
+    expect(renderedApp.state().clickedCards.length).toEqual(2);
+  });
+
+  it('should remove data from clickedCards', () => {
+    renderedApp.find('.card').first().simulate('click');
+    expect(renderedApp.state().clickedCards.length).toEqual(1);
+  });
+
+  it('should remove data from clickedCards', () => {
+    renderedApp.find('.card').at(2).simulate('click');
+    expect(renderedApp.state().clickedCards.length).toEqual(0);
+  });
+
+  it('should get all items from search with no search term', () => {
+    renderedApp.find('input').simulate('change', { target: { value: '' } });
+    expect(Object.keys(renderedApp.state().search.data).length).toEqual(181);
+  });
+
+  it('should remove items from search', () => {
+    renderedApp.find('input').simulate('change', { target: { value: 'q' } });
+    expect(Object.keys(renderedApp.state().search.data).length).toEqual(1);
+  });
+
+
 });

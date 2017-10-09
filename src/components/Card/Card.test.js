@@ -4,8 +4,7 @@ import Adapter from 'enzyme-adapter-react-15';
 import { shallow, mount, configure } from 'enzyme';
 import DistrictRepository from '../../helper';
 import KinderData from '../../../data/kindergartners_in_full_day_program.js';
-import App from '../App/App';
-import Card from '../Card/Card';
+import Card from './Card';
 
 configure({ adapter: new Adapter() });
 
@@ -22,7 +21,6 @@ describe('Card component', () => {
     key={1482363367071}
     handleClicked={handleClicked}
                              />);
-
   it.skip('should match the snapshot', () => {
     expect(renderedCard).toMatchSnapshot();
   });

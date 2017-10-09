@@ -14,6 +14,7 @@ describe('CardContainer component', () => {
   const handleClicked = jest.fn();
 
   const kinderData = new DistrictRepository(KinderData);
+
   const renderedCardContainer = shallow(<CardContainer
     dataSet={kinderData}
     clickedCards={[]}

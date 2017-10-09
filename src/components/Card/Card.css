@@ -22,7 +22,7 @@ ul {
   list-style: none; }
 
 .good {
-  color: green; }
+  font-weight: 800;}
 
 .bad {
-  color: red; }
+  color: darkgrey; }
